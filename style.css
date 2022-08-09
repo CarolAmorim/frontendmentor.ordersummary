@@ -5,12 +5,18 @@
 
   --p1: hsl(225, 100%, 94%);
   --p2: hsl(245, 75%, 52%);
+  --p3: hsl(245, 83%, 68%);
 
   /* ### Neutral */
 
   --n1: hsl(225, 100%, 98%);
   --n2: hsl(224, 23%, 55%);
   --n3: hsl(223, 47%, 23%);
+
+  --size: 1rem;
+  --mb: 2.5rem;
+
+  --font: "Red Hat Display", Arial, sans-serif;
 }
 
 /* reset */
@@ -18,6 +24,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+  font-family: var(--font);
 }
 
 body {
@@ -25,15 +33,13 @@ body {
   background: url("./img/pattern-background-desktop.svg") repeat-x;
   background-color: var(--p1);
 
-  font-family: "Red Hat Display", sans-serif;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 main {
-  width: 300px;
+  width: 450px;
   border-radius: 20px;
   background-color: var(--n1);
 }
@@ -43,42 +49,46 @@ main > img {
   border-radius: 20px 20px 0 0;
 }
 
+.margin {
+  margin: 0 24px;
+}
+
 .content {
-  padding: 20px;
+  padding: 2.5rem;
   text-align: center;
 }
 
 .content h1 {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 900;
   margin-bottom: 1rem;
   color: var(--n3);
 }
 
 .content p {
-  font-size: 1rem;
+  font-size: var(--size);
   color: var(--n2);
   font-weight: 500;
 }
 
 .content > p {
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin-bottom: var(--mb);
 }
 
 .content .price {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  align-content: center;
-  margin-bottom: 2rem;
+  justify-content: center;
+  margin-bottom: var(--mb);
+  gap: 1.25rem;
 }
 
 .content .price p {
   font-weight: 900;
   color: var(--n3);
   text-align: left;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .content .price p span {
@@ -86,29 +96,93 @@ main > img {
   color: var(--n2);
 }
 
+.content .price a {
+  color: var(--p2);
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.content .price a:hover {
+  color: var(--p3);
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
 button {
+  font-family: var(--font);
   display: block;
   width: 100%;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   border: none;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 button:first-of-type {
-  margin-bottom: 4px;
+  margin-bottom: 0.875rem;
   background-color: var(--p2);
   color: var(--n1);
+  box-shadow: 0px 1rem 1rem rgba(56, 41, 224, 0.15);
+}
+
+button:first-of-type:hover {
+  background-color: var(--p3);
 }
 
 button:last-of-type {
-  background-color: var(--n1);
+  background-color: transparent;
   color: var(--n2);
+  font-weight: 900;
 }
 
-@media (max-width: 375px) {
+button:last-of-type:hover {
+  background-color: transparent;
+  color: var(--n3);
+}
+
+@media (max-width: 450px) {
+  main {
+    width: 350px;
+  }
+
   body {
-    background: url("./img/pattern-background-mobile.svg") no-repeat;
+    background: url("./img/pattern-background-mobile.svg") repeat-x;
+    background-color: var(--p1);
+  }
+  .content {
+    padding: 1.875rem 1.25rem;
+  }
+
+  .margin {
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  :root {
+    --mb: 1.8rem;
+  }
+
+  main {
+    width: 250px;
+  }
+
+  .content {
+    padding: 1.25rem;
+  }
+
+  .margin {
+    margin: 0;
+  }
+
+  .content .price {
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+
+  .content .price p {
+    margin: 0 2.5rem;
+    text-align: center;
   }
 }
