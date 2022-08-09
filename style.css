@@ -39,9 +39,10 @@ body {
 }
 
 main {
-  width: 450px;
+  max-width: 450px;
   border-radius: 20px;
   background-color: var(--n1);
+  margin: 1.5rem;
 }
 
 main > img {
@@ -50,7 +51,7 @@ main > img {
 }
 
 .margin {
-  margin: 0 24px;
+  margin: 0 1.5rem;
 }
 
 .content {
@@ -59,7 +60,7 @@ main > img {
 }
 
 .content h1 {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 900;
   margin-bottom: 1rem;
   color: var(--n3);
@@ -141,31 +142,14 @@ button:last-of-type:hover {
   color: var(--n3);
 }
 
-@media (max-width: 450px) {
-  main {
-    width: 350px;
+@media (max-width: 375px) {
+  :root {
+    --mb: 1.8rem;
   }
 
   body {
     background: url("./img/pattern-background-mobile.svg") repeat-x;
     background-color: var(--p1);
-  }
-  .content {
-    padding: 1.875rem 1.25rem;
-  }
-
-  .margin {
-    margin: 0 1rem;
-  }
-}
-
-@media (max-width: 350px) {
-  :root {
-    --mb: 1.8rem;
-  }
-
-  main {
-    width: 250px;
   }
 
   .content {
@@ -177,12 +161,15 @@ button:last-of-type:hover {
   }
 
   .content .price {
-    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     gap: 0.625rem;
   }
 
   .content .price p {
-    margin: 0 2.5rem;
+    /* force text break */
+    margin: 0 30%;
     text-align: center;
   }
 }
